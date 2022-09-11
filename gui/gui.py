@@ -78,7 +78,9 @@ class HasVaultPage(Page):
 
 # HasVaultPages button will redirect to this page and fill txt with info from
 # decrypted csv
-class VaultAccounts(Page)
+class VaultAccounts(Page):
+    pass
+
 if __name__ == "__main__":
     app = App()
     app.mainloop()
