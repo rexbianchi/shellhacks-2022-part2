@@ -17,7 +17,7 @@ class Vault:
             with open(self.vault_location) as file:
                 encrypted_text = file.read()
 
-            csv_string = """myucf,rexb,08182003\nmybank,rexbianchi,ssfri48\nanotherbank,fdjhdkdd,dfjdhjdhjd"""
+            # csv_string = """myucf,rexb,08182003\nmybank,rexbianchi,ssfri48\nanotherbank,fdjhdkdd,dfjdhjdhjd"""
 
             csv_stringio = StringIO(crypt.decrypt(encrypted_text, self.vault_name, self.password))
             columns = ["Account", "Username", "Password"]
