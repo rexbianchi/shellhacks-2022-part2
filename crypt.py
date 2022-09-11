@@ -60,7 +60,7 @@ def decrypt(encryptedText, vaultName, password):
     
     return plainText
 
-def newUser(vaultName, password, fileLoc):
+def new_account(fileLoc, vaultName, password):
     vaults = readJSON('./vaults.json')
     keyAndSalt = hashForNewPass(password)
 
@@ -81,7 +81,7 @@ def newUser(vaultName, password, fileLoc):
         json.dump({"vaults": vaults}, file)
     
     
-def encrypt(vaultName, plainText, password):
+def encrypt(plainText, vaultName, password):
     vaults = readJSON('./vaults.json')
     vaultInfo = vaults[vaultName]
 
