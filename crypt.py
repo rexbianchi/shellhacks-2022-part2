@@ -53,10 +53,10 @@ def decrypt(encryptedText, vaultName, password):
     dKey = hashForExistingPass(vaultInfo.get('salt'), password)
 
     f = Fernet(dKey)
-    uuid = f.decrypt(vaultInfo.get('eKey'))
+    uuid = f.decrypt(vaultInfo.get('eKey').encode('utf-8'))
     
     g = Fernet(uuid)
-    plainText = g.decrypt(encryptedText)
+    plainText = g.decrypt(encryptedText.encode('utf-8'))
     
     return plainText
 
@@ -88,9 +88,9 @@ def encrypt(plainText, vaultName, password):
     dKey = hashForExistingPass(vaultInfo.get('salt'), password)
 
     f = Fernet(dKey)
-    uuid = f.decrypt(vaults.get('eKey'))
+    uuid = f.decrypt(vaults.get('eKey').encode('utf-8'))
 
     g = Fernet(uuid)
-    encryptedText = g.encrypt(plainText)
+    encryptedText = g.encrypt(plainText.encode('utf-8'))
     
     return encryptedText
