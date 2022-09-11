@@ -68,14 +68,17 @@ class NoAccountPage(Page):
         self.password_label.config(text="Choose vault password:")
         self.password_label.grid(row=2, column=0, pady=10)
         self.password_entry.grid(row=2, column=1, pady=10)
+        self.submit_button.config()
         self.submit_button.grid(row=3, column=0, columnspan=3)
 
-
-class HasAccountPage(Page):
+# This will be if user has vault.json file, if missing with use NoAccountPage
+class HasVaultPage(Page):
     def __init__(self, parent, controller):
         super().__init__(parent, controller)
 
-
+# HasVaultPages button will redirect to this page and fill txt with info from
+# decrypted csv
+class VaultAccounts(Page)
 if __name__ == "__main__":
     app = App()
     app.mainloop()
